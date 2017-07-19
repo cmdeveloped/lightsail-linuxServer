@@ -9,9 +9,9 @@ This project teaches how to access, secure, and perform the initial configuratio
 3. Update all currently installed packages.
 4. Change the SSH port from 22 to 2200 & configure Lightsail networking settings to allow this change.
 5. Configure the Uncomplicated Firewall (UFW) to only allow incoming connections for SSH (port 2200/tcp), HTTP (port 80/tcp), and NTP (port 123/udp).
-6. Create a new user account named **Grader**.
-7. Give **Grader** permission to sudo.
-8. Create an SSH key pair for **Grader** on local machine using ssh-keygen.
+6. Create a new user account named **grader**.
+7. Give **grader** permission to sudo.
+8. Create an SSH key pair for **grader** on local machine using ssh-keygen.
 9. Configure the local timezone to UTC.
 10. Install and configure Apache to serve a Python mod_wsgi application.
 11. Install and configure PostgreSQL.
@@ -25,3 +25,5 @@ This project teaches how to access, secure, and perform the initial configuratio
 
 #### References
 DigitalOcean: https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps
+
+Special thanks to [iliketomatoes](https://github.com/iliketomatoes/linux_server_configuration) for a very informative guide.
