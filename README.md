@@ -1,5 +1,10 @@
 ## Linux Server Configuration
 
+#### Server Information
+###### IP: 52.91.66.177
+###### Live: http://52.91.66.177
+###### Accessible SSH port: 2200
+
 ##### Project Overview
 This project teaches how to access, secure, and perform the initial configuration of a bare-bones Linux server through Amazon Web Service's Lightsail. We accomplish this by learning how to install and configure a web and database server, and actually hosting a web application already developed through the Udacity Full Stack Nanodegree Program.
 
@@ -18,10 +23,50 @@ This project teaches how to access, secure, and perform the initial configuratio
 12. Install git and clone Item Catalog project from Github repository.
 13. Configure all settings on the server to allow viewing of said application when visiting the server's IP address in a browser.
 
-#### Server Information
-###### IP: 52.91.66.177
-###### Live: http://52.91.66.177
-###### Accessible SSH port: 2200
+##### Configurations
+1. Update and Upgrade installed packages.
+```
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install finger
+```
+2. Create new user **grader** and grant permissions.
+```
+sudo adduser grader
+sudo nano /etc/sudoers.d/grader
+
+  # Add this to the file!
+  grader ALL=(ALL:ALL) ALL
+```
+3. Configure the timezone.
+```
+sudo dpkg-reconfigure tzdata
+```
+4. Change the SSH port from 22 to 2200.
+```
+# Edit port line from 22 to 2200
+sudo nano /etc/ssh/sshd_config
+sudo service ssh restart
+```
+5. Configure the Uncomplicated Firewall (UFW)
+```
+sudo ufw allow 2200/tcp
+sudo ufw allow 80/tcp
+sudo ufw allow 123/udp
+sudo ufw enable
+```
+6. Install Apache and Git
+```
+sudo apt-get install apache2 git
+
+sudo apt-get install libapache2-mod-wsgi python-dev
+sudo a2enmod wsgi
+sudo service apache2 start
+
+git config --global user.name cmdeveloped
+git config --global user.email cmdeveloped@gmail.com
+```
+
 
 #### References
 DigitalOcean: https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps
