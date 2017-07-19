@@ -25,4 +25,3 @@ This project teaches how to access, secure, and perform the initial configuratio
 
 #### References
 DigitalOcean: https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps
-Thanks to [iliketomatoes](https://github.com/iliketomatoes/linux_server_configuration) for a very helpful README.
